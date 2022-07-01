@@ -119,19 +119,30 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,  } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import WelocomeScreen from './screens/WelcomeScreen';
+import { NativeScreenContainer } from 'react-native-screens';
+import { NavigationContainer } from '@react-navigation/native';
 
 
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      {/* <PageHeader/>
-      <WelcomePage/> */
-      <WelocomeScreen/>
-      }
-      <StatusBar style="auto" />
-    </View>
+    // <View style={styles.container}>
+    //   {/* <PageHeader/>
+    //   <WelcomePage/> */
+    //   <WelocomeScreen/>
+    //   }
+    //   <StatusBar style="auto" />
+    // </View>
+
+   <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Welcome Screen"  options={{ headerShown: false}} component={WelocomeScreen} />
+      </Stack.Navigator>
+      </NavigationContainer>
+    
   );
 }
 

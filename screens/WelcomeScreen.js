@@ -1,8 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import LoginScreen from './LoginScreen';
+import SignUpScreen from './SignUpScreen';
 
-const WelcomeScreen = () => {
+const Stack = createNativeStackNavigator();
+
+const WelcomeScreenMain = ({navigation}) => {
   const {
     wrapper,
     textStyle,
@@ -22,6 +27,7 @@ const WelcomeScreen = () => {
         style={buttonStyle}
         onPress={() => {
           // Actions.home();
+          navigation.push('Login');
         }}>
         <LinearGradient
           colors={['#43D4FF', '#38ABFD', '#2974FA']}
@@ -38,6 +44,7 @@ const WelcomeScreen = () => {
         style={buttonStyle}
         onPress={() => {
           // Actions.home();
+          navigation.push('SignUp');
         }}>
         <LinearGradient
           colors={['#43D4FF', '#38ABFD', '#2974FA']}
@@ -48,6 +55,28 @@ const WelcomeScreen = () => {
         </LinearGradient>
       </TouchableOpacity>
     </View>
+  );
+};
+
+const WelcomeScreen = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Welcome Screen"
+        options={{headerTitleAlign: 'center'}}
+        component={WelcomeScreenMain}
+      />
+      <Stack.Screen
+        name="Login"
+        options={{headerTitleAlign: 'center'}}
+        component={LoginScreen}
+      />
+      <Stack.Screen
+        name="SignUp"
+        options={{headerTitleAlign: 'center'}}
+        component={SignUpScreen}
+      />
+    </Stack.Navigator>
   );
 };
 
