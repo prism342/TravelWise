@@ -126,7 +126,8 @@ import WelocomeScreen from './screens/WelcomeScreen';
 export default function App() {
   return (
     <View style={styles.container}>
-      {
+      {/* <PageHeader/>
+      <WelcomePage/> */
       <WelocomeScreen/>
       }
       <StatusBar style="auto" />
@@ -152,4 +153,5 @@ const styles = StyleSheet.create({
   pageFooter:{
     flex:1
   }
+
 });
