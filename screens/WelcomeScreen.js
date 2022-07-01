@@ -14,46 +14,52 @@ const WelcomeScreenMain = ({navigation}) => {
     logoStyle: iconStyle,
     buttonStyle,
     subTextStyle,
+    flexBox,
   } = styles;
 
   return (
     <View style={wrapper}>
-      <Image style={iconStyle} source={require('../images/logo.png')} />
-      <View style={styles.textStyle}>
-        <Text style={textStyle}>Hello Traveller!</Text>
+      <View style={flexBox}>
+        <Image style={iconStyle} source={require('../images/logo.png')} />
       </View>
 
-      <TouchableOpacity
-        style={buttonStyle}
-        onPress={() => {
-          // Actions.home();
-          navigation.push('Login');
-        }}>
-        <LinearGradient
-          colors={['#43D4FF', '#38ABFD', '#2974FA']}
-          style={buttonStyle}>
-          <Text style={{color: '#ffffff', textTransform: 'uppercase'}}>
-            Login
-          </Text>
-        </LinearGradient>
-      </TouchableOpacity>
+      <View style={flexBox}>
+        <View style={styles.textStyle}>
+          <Text style={textStyle}>Hello Traveller!</Text>
+        </View>
 
-      <Text style={subTextStyle}>OR</Text>
+        <TouchableOpacity
+          style={buttonStyle}
+          onPress={() => {
+            // Actions.home();
+            navigation.push('Login');
+          }}>
+          <LinearGradient
+            colors={['#43D4FF', '#38ABFD', '#2974FA']}
+            style={buttonStyle}>
+            <Text style={{color: '#ffffff', textTransform: 'uppercase'}}>
+              Login
+            </Text>
+          </LinearGradient>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        style={buttonStyle}
-        onPress={() => {
-          // Actions.home();
-          navigation.push('SignUp');
-        }}>
-        <LinearGradient
-          colors={['#43D4FF', '#38ABFD', '#2974FA']}
-          style={buttonStyle}>
-          <Text style={{color: '#ffffff', textTransform: 'uppercase'}}>
-            Sign Up
-          </Text>
-        </LinearGradient>
-      </TouchableOpacity>
+        <Text style={subTextStyle}>OR</Text>
+
+        <TouchableOpacity
+          style={buttonStyle}
+          onPress={() => {
+            // Actions.home();
+            navigation.push('SignUp');
+          }}>
+          <LinearGradient
+            colors={['#43D4FF', '#38ABFD', '#2974FA']}
+            style={buttonStyle}>
+            <Text style={{color: '#ffffff', textTransform: 'uppercase'}}>
+              Sign Up
+            </Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -90,11 +96,16 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
 
+  flexBox: {
+    flex: 1,
+  },
+
   textStyle: {
     fontSize: 22,
     color: '#004aad',
     textAlign: 'left',
     paddingLeft: 10,
+    marginTop: 10,
   },
 
   subTextStyle: {
@@ -107,7 +118,7 @@ const styles = StyleSheet.create({
 
   logoStyle: {
     alignSelf: 'center',
-    margin: 50,
+    justifyContent: 'center',
   },
 
   buttonStyle: {
