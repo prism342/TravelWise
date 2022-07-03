@@ -9,31 +9,36 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-
-   <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Welcome Screen"  options={{ headerShown: false}} component={WelocomeScreen} />
-      </Stack.Navigator>
-      </NavigationContainer>
+    <View style={styles.container}>
+      <HomeScreen />
+    </View>
     
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Welcome Screen"
+          options={{headerShown: false}}
+          component={WelocomeScreen}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  
   );
 }
 
-
-const styles = StyleSheet.create({ 
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
   },
 
-  PageHeader:{
-    flex:1
+  PageHeader: {
+    flex: 1,
   },
-  PageBody:{
-    flex:2
+  PageBody: {
+    flex: 2,
   },
-  pageFooter:{
-    flex:1
-  }
-
+  pageFooter: {
+    flex: 1,
+  },
 });
