@@ -11,21 +11,21 @@ import {
 } from 'react-native';
 
 const places_data = [
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
 ];
 
 const RatingComponent = () => {
   const styles = StyleSheet.create({
-    container: {flexDirection: 'row'},
+    container: { flexDirection: 'row' },
     image: {
       width: 18,
       height: 18,
@@ -96,23 +96,25 @@ const PortraitPlaceCard = (props: any) => {
   });
 
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={require('../images/toronto.jpg')} />
-      <View style={styles.second_container}>
-        <View>
-          <Text style={styles.title}>Toronto</Text>
-          <RatingComponent />
+    <TouchableOpacity onPress={() => props.navigation.navigate('Details')}>
+      <View style={styles.container}>
+        <Image style={styles.image} source={require('../images/toronto.jpg')} />
+        <View style={styles.second_container}>
+          <View>
+            <Text style={styles.title}>Toronto</Text>
+            <RatingComponent />
+          </View>
+          <Image
+            style={styles.heart_icon}
+            source={require('../images/heart-filled.png')}
+          />
         </View>
-        <Image
-          style={styles.heart_icon}
-          source={require('../images/heart-filled.png')}
-        />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const styles = StyleSheet.create({
     navbar: {
       flexDirection: 'row',
@@ -174,10 +176,10 @@ const HomeScreen = () => {
       </View>
       <FlatList
         data={places_data}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <View style={styles.row_container}>
-            <PortraitPlaceCard />
-            <PortraitPlaceCard />
+            <PortraitPlaceCard navigation={navigation} />
+            <PortraitPlaceCard navigation={navigation} />
           </View>
         )}></FlatList>
     </View>
