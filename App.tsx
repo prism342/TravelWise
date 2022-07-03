@@ -4,13 +4,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import WelocomeScreen from './screens/WelcomeScreen';
 import HomeScreen from './screens/HomeScreen';
 import {NavigationContainer} from '@react-navigation/native';
+import ReviewScreen from './screens/ReviewScreen';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <HomeScreen />
+      <ReviewScreen />
     </View>
 
     /*
