@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from './LoginScreen';
@@ -18,49 +25,49 @@ const WelcomeScreenMain = ({navigation}) => {
   } = styles;
 
   return (
-    <View style={wrapper}>
-      <View style={flexBox}>
-        <Image style={iconStyle} source={require('../images/logo.png')} />
-      </View>
-
-      <View style={flexBox}>
-        <View style={styles.textStyle}>
-          <Text style={textStyle}>Hello Traveller!</Text>
+    <SafeAreaView flex={1}>
+      <View style={wrapper}>
+        <View style={flexBox}>
+          <Image style={iconStyle} source={require('../images/logo.png')} />
         </View>
 
-        <TouchableOpacity
-          style={buttonStyle}
-          onPress={() => {
-            // Actions.home();
-            navigation.push('Login');
-          }}>
-          <LinearGradient
-            colors={['#43D4FF', '#38ABFD', '#2974FA']}
-            style={buttonStyle}>
-            <Text style={{color: '#ffffff', textTransform: 'uppercase'}}>
-              Login
-            </Text>
-          </LinearGradient>
-        </TouchableOpacity>
+        <View style={flexBox}>
+          <View style={styles.textStyle}>
+            <Text style={textStyle}>Hello Traveler!</Text>
+          </View>
 
-        <Text style={subTextStyle}>OR</Text>
+          <TouchableOpacity
+            style={buttonStyle}
+            onPress={() => {
+              navigation.push('Login');
+            }}>
+            <LinearGradient
+              colors={['#43D4FF', '#38ABFD', '#2974FA']}
+              style={buttonStyle}>
+              <Text style={{color: '#ffffff', textTransform: 'uppercase'}}>
+                Login
+              </Text>
+            </LinearGradient>
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={buttonStyle}
-          onPress={() => {
-            // Actions.home();
-            navigation.push('SignUp');
-          }}>
-          <LinearGradient
-            colors={['#43D4FF', '#38ABFD', '#2974FA']}
-            style={buttonStyle}>
-            <Text style={{color: '#ffffff', textTransform: 'uppercase'}}>
-              Sign Up
-            </Text>
-          </LinearGradient>
-        </TouchableOpacity>
+          <Text style={subTextStyle}>OR</Text>
+
+          <TouchableOpacity
+            style={buttonStyle}
+            onPress={() => {
+              navigation.push('Sign Up');
+            }}>
+            <LinearGradient
+              colors={['#43D4FF', '#38ABFD', '#2974FA']}
+              style={buttonStyle}>
+              <Text style={{color: '#ffffff', textTransform: 'uppercase'}}>
+                Sign Up
+              </Text>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -78,7 +85,7 @@ const WelcomeScreen = () => {
         component={LoginScreen}
       />
       <Stack.Screen
-        name="SignUp"
+        name="Sign Up"
         options={{headerTitleAlign: 'center'}}
         component={SignUpScreen}
       />
