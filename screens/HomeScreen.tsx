@@ -11,21 +11,21 @@ import {
 } from 'react-native';
 
 const places_data = [
-  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
-  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
-  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
-  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
-  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
-  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
-  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
-  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
-  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
-  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
+  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
+  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
+  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
+  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
+  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
+  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
+  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
+  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
+  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
 ];
 
 const RatingComponent = () => {
   const styles = StyleSheet.create({
-    container: { flexDirection: 'row' },
+    container: {flexDirection: 'row'},
     image: {
       width: 18,
       height: 18,
@@ -114,7 +114,7 @@ const PortraitPlaceCard = (props: any) => {
   );
 };
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({navigation}) => {
   const styles = StyleSheet.create({
     navbar: {
       flexDirection: 'row',
@@ -125,6 +125,7 @@ const HomeScreen = ({ navigation }) => {
       backgroundColor: 'white',
       borderColor: '#38b6ff',
       borderWidth: 1,
+      height: 60,
     },
     search_icon: {
       width: 35,
@@ -167,7 +168,7 @@ const HomeScreen = ({ navigation }) => {
           />
         </TouchableOpacity>
         <Text style={styles.title}>Home</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Favorites')}>
           <Image
             style={styles.favorite_icon}
             source={require('../images/heart-filled.png')}
@@ -176,7 +177,7 @@ const HomeScreen = ({ navigation }) => {
       </View>
       <FlatList
         data={places_data}
-        renderItem={({ item }) => (
+        renderItem={({item}) => (
           <View style={styles.row_container}>
             <PortraitPlaceCard navigation={navigation} />
             <PortraitPlaceCard navigation={navigation} />

@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   const {
     wrapper,
     textStyle,
@@ -67,7 +67,11 @@ const LoginScreen = () => {
           </View>
 
           <View style={bottomBox}>
-            <TouchableOpacity style={buttonStyle} onPress={() => {}}>
+            <TouchableOpacity
+              style={buttonStyle}
+              onPress={() => {
+                navigation.navigate('Home');
+              }}>
               <LinearGradient
                 colors={['#43D4FF', '#38ABFD', '#2974FA']}
                 style={buttonStyle}>

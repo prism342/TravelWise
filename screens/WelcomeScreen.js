@@ -14,7 +14,7 @@ import SignUpScreen from './SignUpScreen';
 
 const Stack = createNativeStackNavigator();
 
-const WelcomeScreenMain = ({navigation}) => {
+const WelcomeScreen = ({navigation}) => {
   const {
     wrapper,
     textStyle,
@@ -39,7 +39,7 @@ const WelcomeScreenMain = ({navigation}) => {
           <TouchableOpacity
             style={buttonStyle}
             onPress={() => {
-              navigation.push('Login');
+              navigation.navigate('Login');
             }}>
             <LinearGradient
               colors={['#43D4FF', '#38ABFD', '#2974FA']}
@@ -55,7 +55,7 @@ const WelcomeScreenMain = ({navigation}) => {
           <TouchableOpacity
             style={buttonStyle}
             onPress={() => {
-              navigation.push('Sign Up');
+              navigation.navigate('Signup');
             }}>
             <LinearGradient
               colors={['#43D4FF', '#38ABFD', '#2974FA']}
@@ -68,28 +68,6 @@ const WelcomeScreenMain = ({navigation}) => {
         </View>
       </View>
     </SafeAreaView>
-  );
-};
-
-const WelcomeScreen = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Welcome Screen"
-        options={{headerTitleAlign: 'center'}}
-        component={WelcomeScreenMain}
-      />
-      <Stack.Screen
-        name="Login"
-        options={{headerTitleAlign: 'center'}}
-        component={LoginScreen}
-      />
-      <Stack.Screen
-        name="Sign Up"
-        options={{headerTitleAlign: 'center'}}
-        component={SignUpScreen}
-      />
-    </Stack.Navigator>
   );
 };
 

@@ -49,7 +49,7 @@ const RatingComponent = () => {
   );
 };
 
-const DetailsScreen = () => {
+const DetailsScreen = ({navigation}) => {
   const { width: screenWidth } = useWindowDimensions();
 
   const styles = StyleSheet.create({
@@ -132,9 +132,11 @@ const DetailsScreen = () => {
           <View style={styles.description_container}>
             <Text style={styles.description}>Toronto, the capital of the province of Ontario, is a major Canadian city along Lake Ontario’s northwestern shore. It's a dynamic metropolis with a core of soaring skyscrapers, all dwarfed by the iconic, free- standing CN Tower.Toronto also has many green spaces, from the orderly oval of Queen’s Park to 400 - acre High Park and its trails, sports facilities and zoo.</Text>
           </View>
+          <TouchableOpacity onPress={()=>{navigation.navigate('Reviews')}}>
           <View style={styles.review_button_container}>
             <Text style={styles.review}>Reviews ></Text>
           </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </View>

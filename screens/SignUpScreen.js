@@ -11,7 +11,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import CheckBox from '@react-native-community/checkbox';
 
-const SignUpScreen = () => {
+const SignUpScreen = ({navigation}) => {
   const {wrapper, textStyle, topicStyle, buttonStyle, box1, box2, box3, box4} =
     styles;
 
@@ -132,7 +132,11 @@ const SignUpScreen = () => {
           </View>
 
           <View style={box4}>
-            <TouchableOpacity style={buttonStyle} onPress={() => {}}>
+            <TouchableOpacity
+              style={buttonStyle}
+              onPress={() => {
+                navigation.navigate('Login');
+              }}>
               <LinearGradient
                 colors={['#43D4FF', '#38ABFD', '#2974FA']}
                 style={buttonStyle}>
