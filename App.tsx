@@ -1,9 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { StyleSheet, Text, View,  } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import WelocomeScreen from './screens/WelcomeScreen';
-import HomeScreen from './screens/HomeScreen';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -12,8 +12,7 @@ export default function App() {
     <View style={styles.container}>
       <HomeScreen />
     </View>
-
-    /*
+    
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
@@ -23,7 +22,7 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
-    */
+  
   );
 }
 
@@ -31,8 +30,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
 
   PageHeader: {
