@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -23,60 +24,62 @@ const LoginScreen = () => {
   } = styles;
 
   return (
-    <ScrollView
-      style={{flex: 1}}
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={{flexGrow: 1}}
-      keyboardShouldPersistTaps="handled"
-      flex={1}>
-      <View style={wrapper}>
-        <View style={topBox}>
-          <Image style={iconStyle} source={require('../images/logo.png')} />
-        </View>
+    <SafeAreaView flex={1}>
+      <ScrollView
+        style={{flex: 1}}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{flexGrow: 1}}
+        keyboardShouldPersistTaps="handled"
+        flex={1}>
+        <View style={wrapper}>
+          <View style={topBox}>
+            <Image style={iconStyle} source={require('../images/logo.png')} />
+          </View>
 
-        <View style={middleBox}>
-          <Text style={textStyle}>Email</Text>
+          <View style={middleBox}>
+            <Text style={textStyle}>Email</Text>
 
-          <View style={{alignSelf: 'stretch'}}>
-            <TextInput
-              style={input}
-              placeholder="Enter your email"
-              placeholderTextColor="#A9A9A9"
-              keyboardType="email-address"
-              borderColor="#38b6ff"
-              color="#004aad"
-            />
+            <View style={{alignSelf: 'stretch'}}>
+              <TextInput
+                style={input}
+                placeholder="Enter your email"
+                placeholderTextColor="#A9A9A9"
+                keyboardType="email-address"
+                borderColor="#38b6ff"
+                color="#004aad"
+              />
+            </View>
+          </View>
+
+          <View style={middleBox}>
+            <Text style={textStyle}>Password</Text>
+
+            <View style={{alignSelf: 'stretch'}}>
+              <TextInput
+                style={input}
+                placeholder="Enter your password"
+                placeholderTextColor="#A9A9A9"
+                secureTextEntry={true}
+                borderColor="#38b6ff"
+                color="#004aad"
+              />
+            </View>
+          </View>
+
+          <View style={bottomBox}>
+            <TouchableOpacity style={buttonStyle} onPress={() => {}}>
+              <LinearGradient
+                colors={['#43D4FF', '#38ABFD', '#2974FA']}
+                style={buttonStyle}>
+                <Text style={{color: '#ffffff', textTransform: 'uppercase'}}>
+                  Login
+                </Text>
+              </LinearGradient>
+            </TouchableOpacity>
           </View>
         </View>
-
-        <View style={middleBox}>
-          <Text style={textStyle}>Password</Text>
-
-          <View style={{alignSelf: 'stretch'}}>
-            <TextInput
-              style={input}
-              placeholder="Enter your password"
-              placeholderTextColor="#A9A9A9"
-              secureTextEntry={true}
-              borderColor="#38b6ff"
-              color="#004aad"
-            />
-          </View>
-        </View>
-
-        <View style={bottomBox}>
-          <TouchableOpacity style={buttonStyle} onPress={() => {}}>
-            <LinearGradient
-              colors={['#43D4FF', '#38ABFD', '#2974FA']}
-              style={buttonStyle}>
-              <Text style={{color: '#ffffff', textTransform: 'uppercase'}}>
-                Login
-              </Text>
-            </LinearGradient>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
