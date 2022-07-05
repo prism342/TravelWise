@@ -1,44 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, View,  } from 'react-native';
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import WelocomeScreen from './screens/WelcomeScreen';
+import HomeScreen from './screens/HomeScreen';
+import DetailsScreen from './screens/DetailsScreen';
 import { NavigationContainer } from '@react-navigation/native';
 
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+function AppStacks() {
   return (
-    <View style={styles.container}>
-      <HomeScreen />
-    </View>
-    
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Welcome Screen"
-          options={{headerShown: false}}
-          component={WelocomeScreen}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Details" component={DetailsScreen} />
+    </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
+export default function App() {
+  return (
 
-  PageHeader: {
-    flex: 1,
-  },
-  PageBody: {
-    flex: 2,
-  },
-  pageFooter: {
-    flex: 1,
-  },
-});
+    <NavigationContainer>
+      <AppStacks />
+    </NavigationContainer>
+  );
+}
