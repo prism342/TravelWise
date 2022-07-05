@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import CheckBox from '@react-native-community/checkbox';
@@ -24,124 +25,126 @@ const SignUpScreen = () => {
   const [state, setState] = React.useState(initialState);
 
   return (
-    <ScrollView
-      style={{flex: 1}}
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={{flexGrow: 1}}
-      keyboardShouldPersistTaps="handled"
-      flex={1}>
-      <View style={wrapper}>
-        <View style={box1}>
-          <Text style={topicStyle}>Create New Account</Text>
-        </View>
-
-        <View style={box2}>
-          <Text style={textStyle}>Username</Text>
-
-          <View style={{alignSelf: 'stretch'}}>
-            <TextInput
-              style={styles.input}
-              placeholder="Enter your username"
-              placeholderTextColor="#A9A9A9"
-              keyboardType="email-address"
-              borderColor="#38b6ff"
-              color="#004aad"
-            />
-          </View>
-        </View>
-
-        <View style={box2}>
-          <Text style={textStyle}>Email</Text>
-
-          <View style={{alignSelf: 'stretch'}}>
-            <TextInput
-              style={styles.input}
-              placeholder="Enter your email"
-              placeholderTextColor="#A9A9A9"
-              keyboardType="email-address"
-              borderColor="#38b6ff"
-              color="#004aad"
-            />
-          </View>
-        </View>
-
-        <View style={box2}>
-          <Text style={textStyle}>Password</Text>
-
-          <View style={{alignSelf: 'stretch'}}>
-            <TextInput
-              style={styles.input}
-              placeholder="Enter your password"
-              placeholderTextColor="#A9A9A9"
-              secureTextEntry={true}
-              borderColor="#38b6ff"
-              color="#004aad"
-            />
-          </View>
-        </View>
-
-        <View style={box3}>
-          <View style={styles.checkboxWrapper}>
-            <CheckBox
-              style={{
-                marginTop: 12,
-              }}
-              value={state.react}
-              tintColors={{true: '#38b6ff', false: '#004aad'}}
-              onValueChange={value =>
-                setState({
-                  ...state,
-                  react: value,
-                })
-              }
-            />
+    <SafeAreaView flex={1}>
+      <ScrollView
+        style={{flex: 1}}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{flexGrow: 1}}
+        keyboardShouldPersistTaps="handled"
+        flex={1}>
+        <View style={wrapper}>
+          <View style={box1}>
+            <Text style={topicStyle}>Create New Account</Text>
           </View>
 
-          <View>
-            <Text
-              style={{
-                color: '#004aad',
-                marginLeft: 5,
-                alignSelf: 'center',
-                marginTop: 18,
-              }}>
-              I agree with
-            </Text>
+          <View style={box2}>
+            <Text style={textStyle}>Username</Text>
+
+            <View style={{alignSelf: 'stretch'}}>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter your username"
+                placeholderTextColor="#A9A9A9"
+                keyboardType="email-address"
+                borderColor="#38b6ff"
+                color="#004aad"
+              />
+            </View>
           </View>
 
-          <View>
-            <TouchableOpacity
-              style={{flexDirection: 'row'}}
-              onPress={() => {
-                Actions.register();
-              }}>
+          <View style={box2}>
+            <Text style={textStyle}>Email</Text>
+
+            <View style={{alignSelf: 'stretch'}}>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter your email"
+                placeholderTextColor="#A9A9A9"
+                keyboardType="email-address"
+                borderColor="#38b6ff"
+                color="#004aad"
+              />
+            </View>
+          </View>
+
+          <View style={box2}>
+            <Text style={textStyle}>Password</Text>
+
+            <View style={{alignSelf: 'stretch'}}>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter your password"
+                placeholderTextColor="#A9A9A9"
+                secureTextEntry={true}
+                borderColor="#38b6ff"
+                color="#004aad"
+              />
+            </View>
+          </View>
+
+          <View style={box3}>
+            <View style={styles.checkboxWrapper}>
+              <CheckBox
+                style={{
+                  marginTop: 12,
+                }}
+                value={state.react}
+                tintColors={{true: '#38b6ff', false: '#004aad'}}
+                onValueChange={value =>
+                  setState({
+                    ...state,
+                    react: value,
+                  })
+                }
+              />
+            </View>
+
+            <View>
               <Text
                 style={{
                   color: '#004aad',
                   marginLeft: 5,
                   alignSelf: 'center',
                   marginTop: 18,
-                  textDecorationLine: 'underline',
                 }}>
-                Terms and Conditions
+                I agree with
               </Text>
+            </View>
+
+            <View>
+              <TouchableOpacity
+                style={{flexDirection: 'row'}}
+                onPress={() => {
+                  Actions.register();
+                }}>
+                <Text
+                  style={{
+                    color: '#004aad',
+                    marginLeft: 5,
+                    alignSelf: 'center',
+                    marginTop: 18,
+                    textDecorationLine: 'underline',
+                  }}>
+                  Terms and Conditions
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={box4}>
+            <TouchableOpacity style={buttonStyle} onPress={() => {}}>
+              <LinearGradient
+                colors={['#43D4FF', '#38ABFD', '#2974FA']}
+                style={buttonStyle}>
+                <Text style={{color: '#ffffff', textTransform: 'uppercase'}}>
+                  Sign Up
+                </Text>
+              </LinearGradient>
             </TouchableOpacity>
           </View>
         </View>
-
-        <View style={box4}>
-          <TouchableOpacity style={buttonStyle} onPress={() => {}}>
-            <LinearGradient
-              colors={['#43D4FF', '#38ABFD', '#2974FA']}
-              style={buttonStyle}>
-              <Text style={{color: '#ffffff', textTransform: 'uppercase'}}>
-                Sign Up
-              </Text>
-            </LinearGradient>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
