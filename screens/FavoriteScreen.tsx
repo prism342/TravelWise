@@ -24,102 +24,108 @@ import {Card, Paragraph, Title, Avatar, Button} from 'react-native-paper';
         </View>
     </SafeAreaView>
 */
-const FavoriteScreen = () => {
+const FavoriteScreen = ({navigation}) => {
   return (
     <ScrollView>
       <Card>
-        <Card.Cover
-          source={require('../assets/potala-palace.jpeg')}></Card.Cover>
-        <Card.Content>
-          <Title>The Potala Palace</Title>
-          <View style={styles.reviewSectionStyle}>
-            <Paragraph>Rating (number of reviews)</Paragraph>
-            <View style={styles.starsStyle}>
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/star.png')}
-              />
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/star.png')}
-              />
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/star.png')}
-              />
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/star.png')}
-              />
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/halfstar.png')}
-              />
+        <TouchableOpacity onPress={() => navigation.navigate('Details')}>
+          <Card.Cover
+            source={require('../assets/potala-palace.jpeg')}></Card.Cover>
+          <Card.Content>
+            <Title>The Potala Palace</Title>
+            <View style={styles.reviewSectionStyle}>
+              <Paragraph>Rating (number of reviews)</Paragraph>
+              <View style={styles.starsStyle}>
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/star.png')}
+                />
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/star.png')}
+                />
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/star.png')}
+                />
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/star.png')}
+                />
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/halfstar.png')}
+                />
+              </View>
             </View>
-          </View>
-        </Card.Content>
+          </Card.Content>
+        </TouchableOpacity>
 
-        <Card.Cover
-          source={require('../assets/grand_palace_bangkok.jpeg')}></Card.Cover>
-        <Card.Content>
-          <Title>The Grand Palace</Title>
-          <View style={styles.reviewSectionStyle}>
-            <Paragraph>Rating (number of reviews)</Paragraph>
-            <View style={styles.starsStyle}>
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/star.png')}
-              />
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/star.png')}
-              />
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/star.png')}
-              />
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/star.png')}
-              />
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/halfstar.png')}
-              />
+        <TouchableOpacity onPress={() => navigation.navigate('Details')}>
+          <Card.Cover
+            source={require('../assets/grand_palace_bangkok.jpeg')}></Card.Cover>
+          <Card.Content>
+            <Title>The Grand Palace</Title>
+            <View style={styles.reviewSectionStyle}>
+              <Paragraph>Rating (number of reviews)</Paragraph>
+              <View style={styles.starsStyle}>
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/star.png')}
+                />
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/star.png')}
+                />
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/star.png')}
+                />
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/star.png')}
+                />
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/halfstar.png')}
+                />
+              </View>
             </View>
-          </View>
-        </Card.Content>
+          </Card.Content>
+        </TouchableOpacity>
 
-        <Card.Cover
-          source={require('../assets/niagarafalls.jpeg')}></Card.Cover>
-        <Card.Content>
-          <Title>The Niagara Falls</Title>
-          <View style={styles.reviewSectionStyle}>
-            <Paragraph>Rating (number of reviews)</Paragraph>
-            <View style={styles.starsStyle}>
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/star.png')}
-              />
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/star.png')}
-              />
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/star.png')}
-              />
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/star.png')}
-              />
-              <Image
-                style={styles.starStyle}
-                source={require('../assets/halfstar.png')}
-              />
+        <TouchableOpacity onPress={() => navigation.navigate('Details')}>
+          <Card.Cover
+            source={require('../assets/niagarafalls.jpeg')}></Card.Cover>
+          <Card.Content>
+            <Title>The Niagara Falls</Title>
+            <View style={styles.reviewSectionStyle}>
+              <Paragraph>Rating (number of reviews)</Paragraph>
+              <View style={styles.starsStyle}>
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/star.png')}
+                />
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/star.png')}
+                />
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/star.png')}
+                />
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/star.png')}
+                />
+                <Image
+                  style={styles.starStyle}
+                  source={require('../assets/halfstar.png')}
+                />
+              </View>
             </View>
-          </View>
-        </Card.Content>
+          </Card.Content>
+        </TouchableOpacity>
       </Card>
     </ScrollView>
   );
