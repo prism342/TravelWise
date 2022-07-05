@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState} from 'react';
 import {
   View,
   Text,
@@ -8,7 +9,10 @@ import {
   TextInput,
   TouchableOpacity,
   FlatList,
+  Alert,
 } from 'react-native';
+
+import Dialog from 'react-native-dialog';
 
 const places_data = [
   {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
@@ -114,6 +118,48 @@ const PortraitPlaceCard = (props: any) => {
   );
 };
 
+var setSearchDialogVisible: any = null;
+
+function SearchDialog() {
+  const [visible, setVisible] = useState(false);
+  setSearchDialogVisible = setVisible;
+
+  const showDialog = () => {
+    setVisible(true);
+  };
+
+  const handleCancel = () => {
+    setVisible(false);
+  };
+
+  const handleSearch = () => {
+    // The user has pressed the "Delete" button, so here you can do your own logic.
+    // ...Your logic
+    setVisible(false);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Button title="Show dialog" onPress={showDialog} />
+      <Dialog.Container visible={visible}>
+        <Dialog.Title>Search places</Dialog.Title>
+        <Dialog.Input></Dialog.Input>
+        <Dialog.Button label="Cancel" onPress={handleCancel} />
+        <Dialog.Button label="Search" onPress={handleSearch} />
+      </Dialog.Container>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
 const HomeScreen = ({navigation}) => {
   const styles = StyleSheet.create({
     navbar: {
@@ -160,8 +206,12 @@ const HomeScreen = ({navigation}) => {
   //<Button title={'Favorites'} onPress={() => {}}></Button>
   return (
     <View>
+      <SearchDialog />
       <View style={styles.navbar}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            if (setSearchDialogVisible != null) setSearchDialogVisible(true);
+          }}>
           <Image
             style={styles.search_icon}
             source={require('../images/search.png')}
