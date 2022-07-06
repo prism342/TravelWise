@@ -38,28 +38,27 @@
 
 ## WelcomeScreen
 
-<kbd><img src="./readme_images/android/WelcomeScreen.png" width="356" height="747" ></kbd>
+<img src="./readme_images/android/WelcomeScreen.png" width="356" height="747" >
 
 ## LoginScreen
 
-<kbd><img src="./readme_images/android/LoginScreen.png" width="356" height="747" ></kbd>
+<img src="./readme_images/android/LoginScreen.png" width="356" height="747" >
 
 ## SignupScreen
 
-<kbd><img src="./readme_images/android/SignupScreen.png" width="356" height="747" ></kbd>
-
+<img src="./readme_images/android/SignupScreen.png" width="356" height="747" >
 ## HomeScreen
 
-<kbd><img src="./readme_images/android/HomeScreen.png" width="356" height="747" ></kbd>
+<img src="./readme_images/android/HomeScreen.png" width="356" height="747" >
 
 ## DetailsScreen
 
-<kbd><img src="./readme_images/android/DetailsScreen.png" width="356" height="747" ></kbd>
+<img src="./readme_images/android/DetailsScreen.png" width="356" height="747" >
 
 ## ReviewsScreen
 
-<kbd><img src="./readme_images/android/ReviewsScreen.png" width="356" height="747" ></kbd>
+<img src="./readme_images/android/ReviewsScreen.png" width="356" height="747" >
 
 ## FavoritesScreen
 
-<kbd><img src="./readme_images/android/FavoritesScreen.png" width="356" height="747" ></kbd>
+<img src="./readme_images/android/FavoritesScreen.png" width="356" height="747" >
