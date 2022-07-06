@@ -1,35 +1,34 @@
 import React from 'react';
-import {useState} from 'react';
+import { useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   Image,
   Button,
-  TextInput,
   TouchableOpacity,
   FlatList,
-  Alert,
+  SafeAreaView,
 } from 'react-native';
 
 import Dialog from 'react-native-dialog';
 
 const places_data = [
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
-  {name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0},
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
+  { name: 'Toronto', image_path: '../images/toronto.jpg', rating: 5.0 },
 ];
 
 const RatingComponent = () => {
   const styles = StyleSheet.create({
-    container: {flexDirection: 'row'},
+    container: { flexDirection: 'row' },
     image: {
       width: 18,
       height: 18,
@@ -160,7 +159,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
   const styles = StyleSheet.create({
     navbar: {
       flexDirection: 'row',
@@ -205,35 +204,37 @@ const HomeScreen = ({navigation}) => {
   //    <TextInput style={styles.text_input} />
   //<Button title={'Favorites'} onPress={() => {}}></Button>
   return (
-    <View>
-      <SearchDialog />
-      <View style={styles.navbar}>
-        <TouchableOpacity
-          onPress={() => {
-            if (setSearchDialogVisible != null) setSearchDialogVisible(true);
-          }}>
-          <Image
-            style={styles.search_icon}
-            source={require('../images/search.png')}
-          />
-        </TouchableOpacity>
-        <Text style={styles.title}>Home</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Favorites')}>
-          <Image
-            style={styles.favorite_icon}
-            source={require('../images/heart-filled.png')}
-          />
-        </TouchableOpacity>
+    <SafeAreaView flex={1}>
+      <View>
+        <SearchDialog />
+        <View style={styles.navbar}>
+          <TouchableOpacity
+            onPress={() => {
+              if (setSearchDialogVisible != null) setSearchDialogVisible(true);
+            }}>
+            <Image
+              style={styles.search_icon}
+              source={require('../images/search.png')}
+            />
+          </TouchableOpacity>
+          <Text style={styles.title}>Home</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Favorites')}>
+            <Image
+              style={styles.favorite_icon}
+              source={require('../images/heart-filled.png')}
+            />
+          </TouchableOpacity>
+        </View>
+        <FlatList
+          data={places_data}
+          renderItem={({ item }) => (
+            <View style={styles.row_container}>
+              <PortraitPlaceCard navigation={navigation} />
+              <PortraitPlaceCard navigation={navigation} />
+            </View>
+          )}></FlatList>
       </View>
-      <FlatList
-        data={places_data}
-        renderItem={({item}) => (
-          <View style={styles.row_container}>
-            <PortraitPlaceCard navigation={navigation} />
-            <PortraitPlaceCard navigation={navigation} />
-          </View>
-        )}></FlatList>
-    </View>
+    </SafeAreaView>
   );
 };
 
